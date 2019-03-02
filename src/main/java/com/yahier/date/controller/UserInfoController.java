@@ -38,10 +38,10 @@ public class UserInfoController {
         Optional<UserInfo> optional = userInfoRepository.findById(id);
         if (!optional.isPresent()) {
             return new Fail();
+        } else {
+            userInfoRepository.save(userInfoNew);
+            return new Success();
         }
-
-        userInfoRepository.save(userInfoNew);
-        return new Success();
     }
 
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})

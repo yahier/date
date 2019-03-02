@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/activity")
@@ -24,6 +25,21 @@ public class ActivityController {
         System.out.println("size:" + list.size());
         return list;
     }
+
+    @RequestMapping(value = "/get", produces = {"application/json;charset=UTF-8"})
+    public Object get(Long id) {
+        if (id == null) {
+            return new Fail("id参数不对");
+        }
+        Optional<Activity> optional = activityRepository.findById(id);
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            return new Fail("活动不存在");
+        }
+
+    }
+
 
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     public BaseResp add(Activity activity) {
@@ -41,10 +57,10 @@ public class ActivityController {
         boolean isExist = activityRepository.existsById(id);
         if (!isExist) {
             return new Fail();
+        } else {
+            activityRepository.deleteById(id);
+            return new Success();
         }
-
-        activityRepository.deleteById(id);
-        return new Success();
     }
 
 
