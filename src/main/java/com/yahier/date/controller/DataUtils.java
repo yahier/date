@@ -1,6 +1,7 @@
 package com.yahier.date.controller;
 
 import com.yahier.date.table.Activity;
+import com.yahier.date.table.ApplyInfo;
 import com.yahier.date.table.UserInfo;
 
 public class DataUtils {
@@ -41,6 +42,20 @@ public class DataUtils {
         return null;
     }
 
+
+    public static String verify(ApplyInfo applyInfo) {
+        if (isEmpty(applyInfo.getName()))
+            return "姓名格式不对";
+        if (isEmpty(applyInfo.getPhoneNo()))
+            return "手机号码格式不对";
+
+        if (isEmpty(applyInfo.getActivityId()))
+            return "activityId参数不对";
+        if (isEmpty(applyInfo.getUserId()))
+            return "userId参数不对";
+
+        return null;
+    }
 
     private static boolean isEmpty(String str) {
         return str == null || str.equals("");
