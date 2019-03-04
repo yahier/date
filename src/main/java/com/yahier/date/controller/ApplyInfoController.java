@@ -16,7 +16,7 @@ import java.util.List;
 public class ApplyInfoController {
 
     @Autowired
-    private ApplyInfoRepository applyRepository;
+    private ApplyInfoRepository applyInfoRepository;
 
     /**
      * 报名
@@ -27,7 +27,7 @@ public class ApplyInfoController {
         if (verifyResult != null) {
             return new Fail(verifyResult);
         } else {
-            applyRepository.save(applyInfo);
+            applyInfoRepository.save(applyInfo);
             return new Success();
         }
     }
@@ -37,29 +37,29 @@ public class ApplyInfoController {
      */
     @RequestMapping(value = "/quit", produces = {"application/json;charset=UTF-8"})
     public BaseResp quit(Long id) {
-        boolean isExist = applyRepository.existsById(id);
+        boolean isExist = applyInfoRepository.existsById(id);
         if (!isExist) {
             return new Fail();
         } else {
-            applyRepository.deleteById(id);
+            applyInfoRepository.deleteById(id);
             return new Success();
         }
     }
 
-    /**
-     * 查询一场活动的报名信息 todo接口查询语句需要验证
-     */
-    @RequestMapping(value = "/listForActivity", produces = {"application/json;charset=UTF-8"})
-    public List<ApplyInfo> listForActivity(Long activityId) {
-        return applyRepository.listForActivity(activityId);
-    }
-
-    /**
-     * 查询用户的报名信息
-     */
-    @RequestMapping(value = "/listForUser", produces = {"application/json;charset=UTF-8"})
-    public List<ApplyInfo> listForUser(Long userId) {
-        return applyRepository.listForUser(userId);
-    }
+//    /**
+//     * 查询一场活动的报名信息 todo接口查询语句需要验证
+//     */
+//    @RequestMapping(value = "/listForActivity", produces = {"application/json;charset=UTF-8"})
+//    public List<ApplyInfo> listForActivity(Long activityId) {
+//        return applyInfoRepository.listForActivity(activityId);
+//    }
+//
+//    /**
+//     * 查询用户的报名信息
+//     */
+//    @RequestMapping(value = "/listForUser", produces = {"application/json;charset=UTF-8"})
+//    public List<ApplyInfo> listForUser(Long userId) {
+//        return applyInfoRepository.listForUser(userId);
+//    }
 
 }
