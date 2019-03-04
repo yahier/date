@@ -1,20 +1,19 @@
 package com.yahier.date.table;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * 报名信息表
  */
 @Entity
+@NamedQuery(name = "ApplyInfo.listForActivity", query = "select t from ApplyInfo t where t.activityId = ?1")
+@NamedQuery(name = "ApplyInfo.listForUser", query = "select t from ApplyInfo t where t.userId = ?1")
 public class ApplyInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //strategy = GenerationType.AUTO
     private Long id;
-    private String userId;
-    private String activityId;
+    private long userId;
+    private long activityId;
     private String name;
     private String phoneNo;
 
@@ -26,19 +25,19 @@ public class ApplyInfo {
         this.id = id;
     }
 
-    public String getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
-    public String getActivityId() {
+    public long getActivityId() {
         return activityId;
     }
 
-    public void setActivityId(String activityId) {
+    public void setActivityId(long activityId) {
         this.activityId = activityId;
     }
 

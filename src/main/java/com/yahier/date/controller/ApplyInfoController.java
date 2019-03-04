@@ -46,20 +46,28 @@ public class ApplyInfoController {
         }
     }
 
-//    /**
-//     * 查询一场活动的报名信息 todo接口查询语句需要验证
-//     */
-//    @RequestMapping(value = "/listForActivity", produces = {"application/json;charset=UTF-8"})
-//    public List<ApplyInfo> listForActivity(Long activityId) {
-//        return applyInfoRepository.listForActivity(activityId);
-//    }
-//
-//    /**
-//     * 查询用户的报名信息
-//     */
-//    @RequestMapping(value = "/listForUser", produces = {"application/json;charset=UTF-8"})
-//    public List<ApplyInfo> listForUser(Long userId) {
-//        return applyInfoRepository.listForUser(userId);
-//    }
+    /**
+     * 查询全部报名信息
+     */
+    @RequestMapping(value = "/list", produces = {"application/json;charset=UTF-8"})
+    public List<ApplyInfo> list() {
+        return applyInfoRepository.findAll();
+    }
+
+    /**
+     * 查询一场活动的报名信息
+     */
+    @RequestMapping(value = "/listForActivity", produces = {"application/json;charset=UTF-8"})
+    public List<ApplyInfo> listForActivity(Long activityId) {
+        return applyInfoRepository.listForActivity(activityId);
+    }
+
+    /**
+     * 查询用户的报名信息
+     */
+    @RequestMapping(value = "/listForUser", produces = {"application/json;charset=UTF-8"})
+    public List<ApplyInfo> listForUser(Long userId) {
+        return applyInfoRepository.listForUser(userId);
+    }
 
 }

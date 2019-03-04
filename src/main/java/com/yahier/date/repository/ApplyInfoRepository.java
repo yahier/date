@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ApplyInfoRepository extends JpaRepository<ApplyInfo, Long> {
 
-    //List<ApplyInfo> listForActivity(Long activityId);
+    List<ApplyInfo> listForActivity(Long activityId);
 
-    //List<ApplyInfo> listForUser(Long userId);
+    List<ApplyInfo> listForUser(Long userId);
 }

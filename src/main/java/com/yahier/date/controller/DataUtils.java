@@ -49,9 +49,9 @@ public class DataUtils {
         if (isEmpty(applyInfo.getPhoneNo()))
             return "手机号码格式不对";
 
-        if (isEmpty(applyInfo.getActivityId()))
+        if (0 == applyInfo.getActivityId())
             return "activityId参数不对";
-        if (isEmpty(applyInfo.getUserId()))
+        if (0 == applyInfo.getUserId())
             return "userId参数不对";
 
         return null;
