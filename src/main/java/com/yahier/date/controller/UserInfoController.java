@@ -47,12 +47,12 @@ public class UserInfoController {
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     public BaseResp add(UserInfo userInfo) {
         System.out.println("name:" + userInfo.getName());
-        String result = DataUtils.verify(userInfo);
-        if (result == null) {
+        String errorResult = DataUtils.verify(userInfo);
+        if (errorResult == null) {
             userInfoRepository.save(userInfo);
             return new Success();
         } else {
-            return new Fail(result);
+            return new Fail(errorResult);
         }
     }
 

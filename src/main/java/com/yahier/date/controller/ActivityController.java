@@ -43,12 +43,12 @@ public class ActivityController {
 
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     public BaseResp add(Activity activity) {
-        String verifyResult = DataUtils.verify(activity);
-        if (verifyResult == null) {
+        String verifyErrorResult = DataUtils.verify(activity);
+        if (verifyErrorResult == null) {
             activityRepository.save(activity);
             return new Success();
         } else {
-            return new Fail(verifyResult);
+            return new Fail(verifyErrorResult);
         }
     }
 

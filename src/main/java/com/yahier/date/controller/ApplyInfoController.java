@@ -23,9 +23,9 @@ public class ApplyInfoController {
      */
     @RequestMapping(value = "/join", produces = {"application/json;charset=UTF-8"})
     public BaseResp join(ApplyInfo applyInfo) {
-        String verifyResult = DataUtils.verify(applyInfo);
-        if (verifyResult != null) {
-            return new Fail(verifyResult);
+        String verifyErrorResult = DataUtils.verify(applyInfo);
+        if (verifyErrorResult != null) {
+            return new Fail(verifyErrorResult);
         } else {
             applyInfoRepository.save(applyInfo);
             return new Success();
