@@ -13,7 +13,7 @@ public class UserInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //strategy = GenerationType.AUTO
     private Long id;
-
+    private int gender;
     private String name;//姓名
     private String photoUrl;//图片
     private String phoneNo;//手机号码
@@ -103,5 +103,13 @@ public class UserInfo {
 
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 }
