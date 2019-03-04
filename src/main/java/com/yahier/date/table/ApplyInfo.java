@@ -6,8 +6,8 @@ import javax.persistence.*;
  * 报名信息表
  */
 @Entity
-@NamedQuery(name = "ApplyInfo.listForActivity", query = "select t from ApplyInfo t where t.activityId = ?1")
-@NamedQuery(name = "ApplyInfo.listForUser", query = "select t from ApplyInfo t where t.userId = ?1")
+//@NamedQuery(name = "ApplyInfo.listForActivity", query = "select t from ApplyInfo t where t.activityId = ?1")
+//@NamedQuery(name = "ApplyInfo.listForUser", query = "select t from ApplyInfo t where t.userId = ?1")
 public class ApplyInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //strategy = GenerationType.AUTO
