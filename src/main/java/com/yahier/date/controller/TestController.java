@@ -15,13 +15,16 @@ public class TestController {
         return TAG + " test1";
     }
 
+    /**
+     * 不用配置viewResolver，直接到达的路径是 resource/static
+     */
     @RequestMapping("/index")
-    String index(Model model) {
-        return "index";
+    public String index() {
+        return "/index.html";
     }
 
     @RequestMapping("/login")
     String login() {
-        return "login";
+        return "/login.html";
     }
 }

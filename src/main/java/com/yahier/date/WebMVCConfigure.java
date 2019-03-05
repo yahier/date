@@ -11,24 +11,21 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 
-@Configuration
-@EnableWebMvc
-@EnableScheduling
-@ComponentScan("com.yahier.date")
+//@Configuration
+//@EnableWebMvc
+//@EnableScheduling
+//@ComponentScan("com.yahier.date")
 public class WebMVCConfigure extends WebMvcConfigurerAdapter {
 
-    /**
-     * todo 配置可能有误，无法到达对应的html文件
-     */
-    @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("classes/views/");
-        viewResolver.setSuffix(".html");
-        viewResolver.setViewClass(JstlView.class);
-        System.out.println("执行view的解析");
-        return viewResolver;
-    }
+//    @Bean
+//    public InternalResourceViewResolver viewResolver() {
+//        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+//        viewResolver.setPrefix("/");
+//        viewResolver.setSuffix(".html");
+//        viewResolver.setViewClass(JstlView.class);
+//        System.out.println("执行view的解析");
+//        return viewResolver;
+//    }
 
 
 //    /**
