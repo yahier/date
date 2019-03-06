@@ -37,5 +37,13 @@ public class ViewController {
         return "/index";
     }
 
+    /**
+     * 个人信息编辑页面
+     */
+    @RequestMapping("/userEdit")
+    public String userInfo(HttpServletRequest request) {
+        return "/user_info_edit";
+    }
+
 
 }

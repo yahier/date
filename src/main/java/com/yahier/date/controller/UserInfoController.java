@@ -49,6 +49,7 @@ public class UserInfoController {
         System.out.println("name:" + userInfo.getName());
         String errorResult = DataUtils.verify(userInfo);
         if (errorResult == null) {
+            //todo验证是否已经存有信息 根据姓名和手机号码判断是否已经有此用户信息
             userInfoRepository.save(userInfo);
             return new Success();
         } else {
