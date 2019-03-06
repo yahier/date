@@ -23,4 +23,19 @@ public class ViewController {
         return "/thymeleaf_test1";
     }
 
+    /**
+     * 增加了thymeleaf后，路径有所不同
+     */
+    @RequestMapping("/test2")
+    public String test2(HttpServletRequest request) {
+        request.setAttribute("key", "hello world");
+        return "redirect:/index.html";
+    }
+
+    @RequestMapping("/test3")
+    public String test3(HttpServletRequest request) {
+        return "/index";
+    }
+
+
 }
