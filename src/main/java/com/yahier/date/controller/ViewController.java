@@ -1,5 +1,6 @@
 package com.yahier.date.controller;
 
+import com.yahier.date.table.UserInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -41,7 +42,8 @@ public class ViewController {
      * 个人信息编辑页面
      */
     @RequestMapping("/userEdit")
-    public String userInfo(HttpServletRequest request) {
+    public String userInfo(HttpServletRequest request, UserInfo userInfo) {
+        request.setAttribute("name", userInfo.getName());
         return "/user_info_edit";
     }
 

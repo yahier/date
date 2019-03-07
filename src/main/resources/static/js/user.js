@@ -1,3 +1,6 @@
+function initUserData() {
+}
+
 //提交用户信息
 function submitUserInfo() {
     var name = $('#name').val();

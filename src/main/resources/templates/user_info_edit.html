@@ -1,4 +1,5 @@
 <!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
     <meta charset="utf-8">
@@ -22,7 +23,8 @@
 </div>
 
 <div class="login">
-    <div class="text name"><input id="name" type="text" placeholder="请输入姓名" value="徐子旺"></div>
+    <div class="text name"><input id="name" placeholder="请输入姓名" th:value="${name}? ${name}:'yahier'">
+    </div>
     <div class="text pwd"><input id="phone" type="text" placeholder="请输入手机号码" value="18520137573"></div>
     <div class="text pwd"><input id="birthday" type="text" placeholder="请输入出生日期" value="19891215"></div>
     <div class="text pwd"><input id="height" type="text" placeholder="请输入身高 CM" value="170"></div>
