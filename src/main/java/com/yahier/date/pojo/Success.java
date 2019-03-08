@@ -1,6 +1,6 @@
 package com.yahier.date.pojo;
 
-public class Success extends BaseResp{
+public class Success extends BaseResp {
     private int code = 200;
     private String msg = "操作成功";
 
@@ -9,7 +9,7 @@ public class Success extends BaseResp{
     }
 
     public Success(String msg) {
-
+        this.msg = msg;
     }
 
     public int getCode() {

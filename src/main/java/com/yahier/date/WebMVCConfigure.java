@@ -36,6 +36,16 @@ public class WebMVCConfigure extends WebMvcConfigurerAdapter {
 //        registry.addViewController("/index").setViewName("/index");
 //    }
 
+    /**
+     * 用途之一是上传文件
+     */
+    @Bean
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(1000000);
+        return multipartResolver;
+    }
+
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         System.out.println("添加静态资源");
         // logger.info("addResourceHandlers");

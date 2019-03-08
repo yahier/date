@@ -47,5 +47,14 @@ public class ViewController {
         return "/user_info_edit";
     }
 
+    /**
+     * 个人信息编辑页面
+     */
+    @RequestMapping("/upload")
+    public String upload(HttpServletRequest request, UserInfo userInfo) {
+        request.setAttribute("name", userInfo.getName());
+        return "/upload";
+    }
+
 
 }
