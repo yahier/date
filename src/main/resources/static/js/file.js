@@ -14,7 +14,10 @@ function uploadPic() {
                 console.log(res);
                 //$("#pic").val("");
                 $("#showUrl").html(res.msg);
-                $("#showPic").attr("src", res.msg);
+                alert("123");
+                var src = window.URL.createObjectURL($("#file"))//这里传一个文件对象 例如：file.files[0]
+                alert("src:" + src);
+                $("#showPic").attr("src", src);
             } else {
                 alert(res.msg);
             }
@@ -25,4 +28,16 @@ function uploadPic() {
 
     })
 
+}
+
+function getFileUrl(sourceId) {
+    var url;
+    if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE
+        url = document.getElementById(sourceId).value;
+    } else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox
+        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+    } else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome
+        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+    }
+    return url;
 }

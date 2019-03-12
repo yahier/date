@@ -44,7 +44,7 @@ public class ViewController {
     @RequestMapping("/userEdit")
     public String userInfo(HttpServletRequest request, UserInfo userInfo) {
         request.setAttribute("name", userInfo.getName());
-        return "/user_info_edit";
+        return "user_info_edit";
     }
 
     /**
@@ -53,7 +53,7 @@ public class ViewController {
     @RequestMapping("/upload")
     public String upload(HttpServletRequest request, UserInfo userInfo) {
         request.setAttribute("name", userInfo.getName());
-        return "/upload";
+        return "upload";
     }
 
 
