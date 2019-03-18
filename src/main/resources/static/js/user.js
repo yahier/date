@@ -10,6 +10,7 @@ function submitUserInfo() {
     var weight = $('#weight').val();
     var career = $('#career').val();
     var remark = $('#remark').val();
+    var hobbies = $('#hobbies').val();
 
     alert(name + " " + phone + " " + birthDate + " " + weight + " " + height + " " + career);
     var data = {
@@ -19,7 +20,8 @@ function submitUserInfo() {
         "heightCM": height,
         "weightKG": weight,
         "career": career,
-        "remark": remark
+        "remark": remark,
+        "hobbies": hobbies
     }
     var url = "/userInfo/add";
 

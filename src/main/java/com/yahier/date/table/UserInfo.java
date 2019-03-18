@@ -14,6 +14,8 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //strategy = GenerationType.AUTO
     private Long id;
     private int gender;
+    public final static int GenderMale = 1;
+    public final static int GenderFemale = 2;
     private String name;//姓名
     private String photoUrl;//图片
     private String phoneNo;//手机号码
@@ -21,7 +23,7 @@ public class UserInfo {
     private String career;//职业
     private int heightCM;//身高
     private int weightKG;//体重
-    //private List<String> listHobby;//兴趣爱好
+    private String hobbies;//兴趣爱好 提示用户填写时 用空格隔开
     private String remark;//备注
 
 
@@ -81,13 +83,13 @@ public class UserInfo {
         this.remark = remark;
     }
 
-//    public List<String> getListHobby() {
-//        return listHobby;
-//    }
-//
-//    public void setListHobby(List<String> listHobby) {
-//        this.listHobby = listHobby;
-//    }
+    public String getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(String hobbies) {
+        this.hobbies = hobbies;
+    }
 
     public String getPhoneNo() {
         return phoneNo;
