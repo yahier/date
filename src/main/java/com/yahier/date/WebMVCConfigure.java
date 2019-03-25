@@ -17,6 +17,13 @@ import org.springframework.web.servlet.view.JstlView;
 //@ComponentScan("com.yahier.date")
 public class WebMVCConfigure extends WebMvcConfigurerAdapter {
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new OneInterceptor()).addPathPatterns("/*/***");
+        registry.addInterceptor(new OneInterceptor()).addPathPatterns("/*");
+        super.addInterceptors(registry);
+    }
+
 //    @Bean
 //    public InternalResourceViewResolver viewResolver() {
 //        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

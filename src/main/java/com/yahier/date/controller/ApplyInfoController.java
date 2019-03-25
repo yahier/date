@@ -3,6 +3,7 @@ package com.yahier.date.controller;
 import com.yahier.date.pojo.BaseResp;
 import com.yahier.date.pojo.Fail;
 import com.yahier.date.pojo.Success;
+import com.yahier.date.pojo.TestItem;
 import com.yahier.date.repository.ApplyInfoRepository;
 import com.yahier.date.table.ApplyInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,11 @@ public class ApplyInfoController {
      */
     @RequestMapping(value = "/list", produces = {"application/json;charset=UTF-8"})
     public List<ApplyInfo> list() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return applyInfoRepository.findAll();
     }
 
